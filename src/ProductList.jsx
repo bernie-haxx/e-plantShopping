@@ -268,30 +268,25 @@ function ProductList() {
     useEffect(() => {
         // Update the state of the cart items
         setCartStatus(cartQuantity);
+        // Take items from addedToCart items and cart items
+        const addedCartItems = Object.keys(addedToCart);
+        const cartItems = Object.values(cart).map(item => item.name);
+
+        // Check if items mismatch
+         if (addedCartItems.length != cartItems.length) {
+            // get mismatch items
+            const itemsMismatch = addedCartItems.filter(x => !cartItems.includes(x));
+
+            // create new AddedToCart State
+            const newAddedToCart =  {...addedToCart};
+            
+            // delete the mismatched items
+            itemsMismatch.forEach(key => delete newAddedToCart[key]);
+
+            // Update state
+            setAddedToCart(newAddedToCart);
+         }
         
-        // Update the state of the add to cart button
-        if (cartQuantity > 0) {
-            for (const index in cart){
-                let value = cart[index];
-                console.log(Object.keys(addedToCart).includes(value.name));
-                if (Object.keys(addedToCart).includes(value.name)) {
-                    console.log(value.quantity);
-                    if (value.quantity === 0 ) {
-                        setAddedToCart(prevState => ({
-                            ...prevState,
-                            [value.name]: false,
-                            
-        
-                        })
-                    );
-                    return;
-                    }
-                    
-                }
-            }
-        } else {
-            setAddedToCart({});
-        }
         
       }, [cartQuantity]);
     return (
@@ -342,9 +337,9 @@ function ProductList() {
                                 <p>{plant.description}</p>
                                 <span> {plant.cost} </span>
                                 <button 
-                                className={ addedToCart[plant.name] ? `product-button added-to-cart`:`product-button`} 
+                                className={ addedToCart[plant.name]  ? `product-button added-to-cart`:`product-button`} 
                                 onClick={() => handleAddToCart(plant)}
-                                disabled={addedToCart[plant.name] ? true : false}
+                                disabled={addedToCart[plant.name]}
                                 >{ !addedToCart[plant.name] ? "Add to Cart" : "Added To Cart"}</button>
                             </div>
                         ))}
