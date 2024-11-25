@@ -1,6 +1,6 @@
 # Paradise Nursery
 
-This is a final project for the IBM Fullstack JavaScript Professional Certificate course: [Developing front-End Apps with React](https://www.coursera.org/learn/developing-frontend-apps-with-react/home/welcome)
+This is the final project for the IBM Fullstack JavaScript Professional Certificate course: [Developing front-End Apps with React](https://www.coursera.org/learn/developing-frontend-apps-with-react/home/welcome)
 
 Certificate:
 ![cert](./public/react-certificate.png)
