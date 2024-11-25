@@ -2,7 +2,12 @@
 
 This is a final project for the IBM Fullstack JavaScript Professional Certificate course: [Developing front-End Apps with React](https://www.coursera.org/learn/developing-frontend-apps-with-react/home/welcome)
 
+Certificate:
+![cert](./public/react-certificate.png)
+Home Page:
 ![Home-page](./public/plant-home-page.png)
+
+
 ## Overview
 The application will allow you to browse a variety of houseplants and add them to a shopping cart. 
 
